@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Routes | 🚌 my...route</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <h2>🚌 my...route</h2>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="routes.html">Routes</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<h2 class="center">Routes & Timings</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>From</th>
+      <th>To</th>
+      <th>Timing</th>
+      <th>Seats</th>
+    </tr>
+  </thead>
+  <tbody id="routeTable"></tbody>
+</table>
+
+<script src="data.js"></script>
+<script>
+  const table = document.getElementById("routeTable");
+
+  routes.forEach(r => {
+    table.innerHTML += `
+      <tr>
+        <td>${r.from}</td>
+        <td>${r.to}</td>
+        <td>${r.timing}</td>
+        <td style="color:${r.seats < 10 ? 'red' : 'green'}">
+          ${r.seats}
+        </td>
+      </tr>
+    `;
+  });
+</script>
+
+<footer>
+  <p>© 2026 🚌 my...route</p>
+</footer>
+
+</body>
+</html>
